@@ -9,5 +9,5 @@ before_script:
   - black --check .
 script:
   - flake8 .
-  - mypy .
+  - mypy . --disallow-untyped-defs --disallow-untyped-calls
   - pytest
