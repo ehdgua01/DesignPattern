@@ -43,7 +43,7 @@ class FlyNoWay(FlyBehavior):
 
 class FlyRocketPower(FlyBehavior):
     def fly(self) -> None:
-        print('날 수 있음(로켓)')
+        print("날 수 있음(로켓)")
 
 
 class QuackBehavior(abc.ABC):
@@ -115,4 +115,4 @@ class ModelDuck(Duck):
     quack_behavior = Quack()
 
     def display(self) -> None:
-        print('모형 오리')
+        print("모형 오리")
