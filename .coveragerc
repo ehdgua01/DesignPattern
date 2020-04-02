@@ -1,0 +1,6 @@
+[report]
+omit =
+    .venv/*
+exclude_lines =
+    pragma: no cover
+    @abc
