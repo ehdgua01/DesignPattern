@@ -9,5 +9,4 @@ before_script:
   - black --check .
 script:
   - flake8 .
-  - mypy .
   - pytest

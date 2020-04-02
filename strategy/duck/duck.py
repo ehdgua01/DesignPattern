@@ -63,27 +63,23 @@ class MuteQuack(QuackBehavior):
 
 
 class Duck(abc.ABC):
-    def __init__(self) -> None:
-        self._fly_behavior = None
-        self._quack_behavior = None
-
     @property
     @abc.abstractmethod
     def fly_behavior(self) -> FlyBehavior:
-        return self._fly_behavior
+        pass
 
     @property
     @abc.abstractmethod
     def quack_behavior(self) -> QuackBehavior:
-        return self._quack_behavior
+        pass
 
     @fly_behavior.setter  # pragma: no cover
     def fly_behavior(self, fb: Type[FlyBehavior]) -> None:
-        self._fly_behavior = fb()
+        self.fly_behavior = fb()
 
     @quack_behavior.setter  # pragma: no cover
     def quack_behavior(self, qb: Type[QuackBehavior]) -> None:
-        self._quack_behavior = qb()
+        self.quack_behavior = qb()
 
     @abc.abstractmethod
     def display(self) -> None:
