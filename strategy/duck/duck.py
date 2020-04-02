@@ -1,5 +1,5 @@
 """
-SimUDuck simulation
+Simulation duck
 >>> mallard = MallardDuck()
 >>> mallard.display()
 물오리
