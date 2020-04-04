@@ -14,6 +14,12 @@ This simulation is intended to obtain weather data.
 ...     'pressure': 30.2,
 ... })
 {'temperature': 60, 'humidity': 50, 'pressure': 30.2}
+>>> weather_station.remove_observer(display)
+>>> weather_station.set_data({
+...     'temperature': 1,
+...     'humidity': 1,
+...     'pressure': 1,
+... })
 """
 from asyncio import new_event_loop, wait
 from typing import List
@@ -36,9 +42,10 @@ class SubjectWeather(Subject):
         self.__observers.remove(observer)
 
     def notify_observers(self) -> None:
-        self.__event_loop.run_until_complete(
-            wait([o.update(self.__data) for o in self.__observers]),
-        )
+        if self.__observers:
+            self.__event_loop.run_until_complete(
+                wait([o.update(self.__data) for o in self.__observers]),
+            )
 
     def measurements_changed(self) -> None:
         self.notify_observers()
