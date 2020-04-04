@@ -8,6 +8,8 @@ Simulation of decorator pattern
 (2500, '다크로스트, 휘핑')
 >>> print(house_blend_with_soy_and_steam_milk())
 (3000, '하우스블렌드, 두유, 스팀밀크')
+>>> print(terrible_hybrid())
+(3500, '에스프레소, 모카, 두유, 스팀밀크, 휘핑')
 """
 from functools import wraps
 from typing import Tuple
@@ -84,3 +86,11 @@ def dark_roast_with_whip() -> RETURN_TYPE:
 @soy
 def house_blend_with_soy_and_steam_milk() -> RETURN_TYPE:
     return house_blend()
+
+
+@whip
+@steam_milk
+@soy
+@mocha
+def terrible_hybrid():
+    return espresso()
