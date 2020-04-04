@@ -1,4 +1,5 @@
 """
+Simulation of decorator pattern
 >>> print(espresso_with_mocha())
 (2000, '에스프레소, 모카')
 >>> print(espresso_with_double_mocha())
