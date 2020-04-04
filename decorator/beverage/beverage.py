@@ -92,5 +92,5 @@ def house_blend_with_soy_and_steam_milk() -> RETURN_TYPE:
 @steam_milk
 @soy
 @mocha
-def terrible_hybrid():
+def terrible_hybrid() -> RETURN_TYPE:
     return espresso()
