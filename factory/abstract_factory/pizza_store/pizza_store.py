@@ -34,7 +34,7 @@ from .pizza_type import PizzaType
 class BulgogiPizza(Pizza):
     name = "불고기 피자"
     cooking_time = 20
-    sauce = '불고기 피자 소스'
+    sauce = "불고기 피자 소스"
 
     def __init__(self, ingredient_factory: INGREDIENT_FACTORY) -> None:
         super().__init__()
@@ -54,7 +54,7 @@ class BulgogiPizza(Pizza):
 class CheesePizza(Pizza):
     name = "치즈 피자"
     cooking_time = 10
-    sauce = '치즈 피자 소스'
+    sauce = "치즈 피자 소스"
 
     def __init__(self, ingredient_factory: INGREDIENT_FACTORY) -> None:
         super().__init__()
