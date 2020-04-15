@@ -29,7 +29,7 @@ False
 [slot 2] on: turn on the light, off: turn off the light
 <BLANKLINE>
 """
-from typing import Dict, Union
+from typing import Dict, List
 
 from .interfaces import CommandType
 
@@ -37,7 +37,7 @@ from .interfaces import CommandType
 class RemoteController(object):
     def __init__(self) -> None:
         self.slots: Dict[int, Dict[str, CommandType]] = {}
-        self.undo_command: Union[CommandType, None] = None
+        self.history: List[CommandType] = []
 
     def set_command(
         self, slot: int, on_command: CommandType, off_command: CommandType
@@ -54,7 +54,7 @@ class RemoteController(object):
 
         command = self.slots[slot]["on"]
         command.execute()
-        self.undo_command = command
+        self.history.append(command)
 
     def off(self, slot: int) -> None:
         if slot not in self.slots:
@@ -63,14 +63,14 @@ class RemoteController(object):
 
         command = self.slots[slot]["off"]
         command.execute()
-        self.undo_command = command
+        self.history.append(command)
 
     def undo(self) -> None:
-        if self.undo_command is None:
+        if not len(self.history):
             print("no command")
             return
 
-        self.undo_command.undo()
+        self.history.pop().undo()
 
     def help(self) -> None:
         text = ""
