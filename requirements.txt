@@ -3,3 +3,4 @@ black
 codecov
 pytest
 pytest-cov
+pyflakes>=2.2.0
