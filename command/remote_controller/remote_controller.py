@@ -1,5 +1,8 @@
 """
 Simulation of command pattern
+
+>>> from .remote_objects import Light
+>>> from .commands import LightOnCommand, LightOffCommand
 >>> controller = RemoteController()
 >>> light = Light()
 >>> controller.set_command(2, LightOnCommand(light), LightOffCommand(light))
@@ -29,8 +32,6 @@ False
 from typing import Dict, Union
 
 from .interfaces import CommandType
-from .remote_objects import Light
-from .commands import LightOnCommand, LightOffCommand
 
 
 class RemoteController(object):
